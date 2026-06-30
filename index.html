@@ -1,3 +1,5 @@
+
+HTML
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -11,12 +13,58 @@
             padding: 0;
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            transition: background-color 0.3s, color 0.3s; /* Transição suave ao mudar de modo */
         }
 
         body {
             background-color: #f4f9f4;
             color: #333;
             line-height: 1.6;
+        }
+
+        /* Classes para o Modo Escuro */
+        body.dark-mode {
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+
+        body.dark-mode section {
+            background-color: #1e1e1e;
+            color: #e0e0e0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        body.dark-mode .card {
+            background-color: #2c3e2e;
+            border-color: #388e3c;
+        }
+
+        body.dark-mode .card h3 {
+            color: #81c784;
+        }
+
+        /* Botão de Acessibilidade */
+        .btn-acessibilidade {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #2e7d32;
+            color: white;
+            border: none;
+            padding: 12px 18px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-acessibilidade:hover {
+            background-color: #1b5e20;
         }
 
         /* Cabeçalho (Header) */
@@ -99,6 +147,10 @@
             margin-bottom: 15px;
         }
 
+        body.dark-mode section h2 {
+            color: #81c784;
+        }
+
         /* Grid de Práticas ABC */
         .praticas-grid {
             display: grid;
@@ -142,10 +194,20 @@
             .banner h2 {
                 font-size: 1.6rem;
             }
+            .btn-acessibilidade {
+                padding: 10px 14px;
+                font-size: 0.9rem;
+                bottom: 15px;
+                right: 15px;
+            }
         }
     </style>
 </head>
 <body>
+
+    <button class="btn-acessibilidade" id="toggleMode" onclick="alternarModo()">
+        🌓 Modo Escuro
+    </button>
 
     <header>
         <h1>Agrinho 2026</h1>
@@ -197,9 +259,26 @@
     </div>
 
     <footer>
-        <p>&copy; 2026 Projeto Agrinho. Desenvolvido para a categoria **Agrinho 2026**.</p>
+        <p>&copy; 2026 Projeto Agrinho. Desenvolvido para a categoria <strong>Agrinho 2026</strong>.</p>
         <p>Tema: <em>Agricultura de Baixo Carbono: Sustentabilidade e Inovação</em></p>
     </footer>
+
+    <script>
+        function alternarModo() {
+            const body = document.body;
+            const botao = document.getElementById('toggleMode');
+            
+            // Alterna a classe dark-mode no body
+            body.classList.toggle('dark-mode');
+            
+            // Muda o texto do botão conforme o modo atual
+            if (body.classList.contains('dark-mode')) {
+                botao.innerHTML = "☀️ Modo Claro";
+            } else {
+                botao.innerHTML = "🌓 Modo Escuro";
+            }
+        }
+    </script>
 
 </body>
 </html>
