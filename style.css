@@ -11,3 +11,23 @@ h1{
     padding: 15px;
     margin-top: 20px;
 }
+
+#botaoTema {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: #1b5e20;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+body.modo-escuro {
+    background-color: #121212;
+    color: #f1f1f1;
+}
+
+body.modo-escuro #botaoTema {
+    background-color: #81c784;
+    color: #121212;
+}
